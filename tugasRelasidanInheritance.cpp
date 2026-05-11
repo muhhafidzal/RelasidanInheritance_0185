@@ -32,3 +32,6 @@ public:
         return email;
     }
 };
+
+// Inisialisasi static variable
+int User::globalId = 0;
