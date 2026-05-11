@@ -35,3 +35,31 @@ public:
 
 // Inisialisasi static variable
 int User::globalId = 0;
+
+class Member : public User {
+private:
+    bool status;
+
+public:
+    Member(string nama, string email, bool status = true)
+        : User(nama, email) {
+        this->status = status;
+    }
+
+    void showProfile() {
+        cout << "===== PROFILE MEMBER =====" << endl;
+        cout << "ID     : " << id << endl;
+        cout << "Nama   : " << nama << endl;
+        cout << "Email  : " << email << endl;
+        cout << "Status : " << (status ? "Aktif" : "Nonaktif") << endl;
+        cout << endl;
+    }
+
+    void setStatus(bool status) {
+        this->status = status;
+    }
+
+    bool getStatus() {
+        return status;
+    }
+};
