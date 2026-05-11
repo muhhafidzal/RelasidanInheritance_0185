@@ -87,3 +87,30 @@ public:
         member.setStatus(!member.getStatus());
     }
 };
+
+int main() {
+
+    // Membuat objek member
+    Member m1("Hafidz", "hafidz@gmail.com");
+    Member m2("Budi", "budi@gmail.com", false);
+
+    // Membuat objek admin
+    Admin admin("Super Admin", "admin@gmail.com");
+
+    vector<Member> members = {m1, m2};
+
+    // Menampilkan semua member
+    admin.showAllMember(members);
+
+    // Toggle status member pertama
+    cout << "\nMengubah status member Hafidz...\n" << endl;
+    admin.toggleActivationMember(members[0]);
+
+    // Menampilkan ulang data member
+    admin.showAllMember(members);
+
+    // Menampilkan profile salah satu member
+    members[0].showProfile();
+
+    return 0;
+}
