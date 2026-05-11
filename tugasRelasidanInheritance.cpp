@@ -63,3 +63,27 @@ public:
         return status;
     }
 };
+
+class Admin : public User {
+public:
+    Admin(string nama, string email)
+        : User(nama, email) {}
+
+    void showAllMember(vector<Member> &members) {
+        cout << "===== DAFTAR MEMBER =====" << endl;
+
+        for (int i = 0; i < members.size(); i++) {
+            cout << "ID     : " << members[i].getId() << endl;
+            cout << "Nama   : " << members[i].getNama() << endl;
+            cout << "Email  : " << members[i].getEmail() << endl;
+            cout << "Status : "
+                 << (members[i].getStatus() ? "Aktif" : "Nonaktif")
+                 << endl;
+            cout << "--------------------------" << endl;
+        }
+    }
+
+    void toggleActivationMember(Member &member) {
+        member.setStatus(!member.getStatus());
+    }
+};
